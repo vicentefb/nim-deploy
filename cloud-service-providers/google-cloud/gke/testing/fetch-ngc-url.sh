@@ -13,6 +13,14 @@ curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/comput
 echo ""
 echo ""
 
+echo "listing the project service account"
+
+
+curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/ sa-nim-inframgr@isv-coe-skhas-nvidia.iam.gserviceaccount.com/"
+
+echo ""
+echo ""
+
 echo "listing the default service account"
 curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/"
 

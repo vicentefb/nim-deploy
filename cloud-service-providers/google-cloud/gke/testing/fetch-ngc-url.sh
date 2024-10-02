@@ -16,7 +16,7 @@ echo ""
 echo "listing the project service account"
 
 
-curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/ sa-nim-inframgr@isv-coe-skhas-nvidia.iam.gserviceaccount.com/"
+curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/sa-nim-inframgr@isv-coe-skhas-nvidia.iam.gserviceaccount.com/"
 
 echo ""
 echo ""
@@ -27,9 +27,14 @@ curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/comput
 echo ""
 echo ""
 
-echo "grabbing an id token"
-ID_TOKEN=$(curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=http://www.example.com&format=full")
+echo "grabbing an id token with the project service account"
+ID_TOKEN=$(curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/sa-nim-inframgr@isv-coe-skhas-nvidia.iam.gserviceaccount.com/identity?audience=http://www.example.com&format=full")
+echo $ID_TOKEN
+echo ""
+echo ""
 
+echo "grabbing an id token with the default service account"
+ID_TOKEN=$(curl -X GET -H "Metadata-Flavor: Google" "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=http://www.example.com&format=full")
 echo $ID_TOKEN
 echo ""
 echo ""

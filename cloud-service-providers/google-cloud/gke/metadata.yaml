@@ -8,7 +8,7 @@ spec:
   info:
     title: NVIDIA NIM™ on GKE
     source:
-      repo: https://github.com/NVIDIA/nim-deploy
+      repo: https://github.com/sujituk/nim-deploy
       sourceType: git
       dir: /test-infra-mgr/cloud-service-providers/google-cloud/gke
     actuationTool:
@@ -24,13 +24,12 @@ spec:
         description: Additional labels to add to Kubernetes resources.
         varType: string
         defaultValue: "created-by=gke-ai-quick-start-solutions,ai.gke.io=nim"
-      #- name: cluster_location
-      #  varType: string
-      #  required: true
-      #  defaultValue: "us-central1"
+      - name: solution_deployment_view
+        varType: bool
+        required: true
       - name: cluster_name
         varType: string
-        defaultValue: "nim-on-gke"
+        defaultValue: "nim-demo-gke"
       - name: create_network
         description: Create the VPC specified by network_name/subnetwork_name
         varType: bool
@@ -48,7 +47,7 @@ spec:
       - name: network_name
         varType: string
         required: true
-        defaultValue: "vpc"
+        defaultValue: "nim-demo-vpc"
       - name: project_id
         description: GCP project id
         varType: string
@@ -59,7 +58,7 @@ spec:
       - name: subnetwork_name
         varType: string
         required: true
-        defaultValue: "subnet"
+        defaultValue: "nim-demo-subnet"
       - name: ngc_username
         varType: string
         required: true
@@ -67,7 +66,7 @@ spec:
       - name: ngc_api_key
         varType: string
         required: true
-        defaultValue: ""
+        defaultValue: "Replace with user NGC API Key"
       - name: registry_server
         varType: string
         required: true
@@ -81,21 +80,394 @@ spec:
         description: "Pick a region for GKE Cluster and NVIDIA GPU accelerator"
         varType: string
         required: true
-        defaultValue: "L4 us-east4 g2-standard-24"
+        defaultValue: "L4 us-central1 g2-standard-24"
       - name: model_name
         description: "Pick a NIM model name"
         varType: string
         required: true
         defaultValue: ""
-      - name: gpu_limits
-        description: "GPU limits"
-        varType: number
-        defaultValue: 1
+      - name: llama3_8b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: llama3_70b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: llama31_405b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: llama31_70b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: llama31_8b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: mixtral_7b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: mistral_7b
+        description: "model"
+        varType: static_text
+        required: true
+      - name: nv_rerankqa_mistral_4b_v3
+        description: "model"
+        varType: static_text
+        required: true
+      - name: nv_embedqa_e5_v5
+        description: "model"
+        varType: static_text
+        required: true
+      - name: nv_embedqa_mistral_7b_v2
+        description: "model"
+        varType: static_text
+        required: true
       - name: nim_license
         description: Terms and Conditions
         varType: bool
         defaultValue: false
         required: true
+      - name: gpu_limits
+        description: "GPU limits"
+        varType: number
+        defaultValue: 1
+      - name: mixtral_7b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: nv_embedqa_mistral_7b_v2_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: nv_embedqa_e5_v5_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: nv_rerankqa_mistral_4b_v3_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: mistral_7b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: llama3_8b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: llama3_70b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: llama31_405b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: llama31_8b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: llama31_70b_compatibility
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: llama31_405b_compatibility_location
+        description: "Pick a GPU"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_llama31_8b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_nv_rerankqa_mistral_4b_v3_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_nv_rerankqa_mistral_4b_v3_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_nv_rerankqa_mistral_4b_v3_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_mixtral_7b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_mixtral_7b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_mixtral_7b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_nv_embedqa_e5_v5_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_nv_embedqa_e5_v5_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_nv_embedqa_e5_v5_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_mistral_7b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_mistral_7b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_mistral_7b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama3_70b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama3_70b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_llama3_8b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama3_8b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama3_8b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_nv_embedqa_mistral_7b_v2_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_nv_embedqa_mistral_7b_v2_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_nv_embedqa_mistral_7b_v2_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_llama31_70b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama31_70b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama31_70b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama31_8b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama31_8b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama31_405b_selection
+        description: "Pick a machine type"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_nv_embedqa_mistral_7b_v2_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_nv_embedqa_mistral_7b_v2_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_nv_embedqa_mistral_7b_v2_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_nv_embedqa_e5_v5_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_nv_embedqa_e5_v5_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_nv_embedqa_e5_v5_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_nv_rerankqa_mistral_4b_v3_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_nv_rerankqa_mistral_4b_v3_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_nv_rerankqa_mistral_4b_v3_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_mixtral_7b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_mixtral_7b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_mixtral_7b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_mistral_7b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_mistral_7b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_mistral_7b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama3_8b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama3_8b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_llama3_8b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama3_70b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama3_70b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama31_70b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama31_70b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_llama31_70b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama31_8b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: a100_llama31_8b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: l4_llama31_8b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: h100_llama31_405b_compatibility_location
+        description: "Pick a region"
+        varType: string
+        required: true 
+        defaultValue: ""
+      - name: production
+        varType: bool
+        required: true
+      - name: api_key
+        description: "Production Key"
+        varType: string
+        required: true
+        defaultValue: ""
     outputs:
       - name: cluster_name
         description: GKE cluster name where the NIMs are running

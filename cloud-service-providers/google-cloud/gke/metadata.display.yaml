@@ -8,9 +8,9 @@ spec:
   info:
     title: NVIDIA NIM on GKE
     source:
-      repo: https://github.com/NVIDIA/nim-deploy
+      repo: https://github.com/sujituk/nim-deploy
       sourceType: git
-      dir: /cloud-service-providers/google-cloud/gke
+      dir: /test-infra-mgr/cloud-service-providers/google-cloud/gke
   ui:
     input:
       variables:

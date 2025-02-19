@@ -390,10 +390,137 @@ variable "vm_gpu_spec_list" {
   }
 }
 
-variable "region_based_vm" {
-  type        = string
-  description = "Cluster and GPU location"
-  default     = "L4 us-east4 g2-standard-24"
+#variable "region_based_vm" {
+#  type        = string
+#  description = "Cluster and GPU location"
+#  default     = "L4 us-east4 g2-standard-24"
+#}
+
+
+# Gpu types
+variable "nv_embedqa_mistral_7b_v2_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "nv_embedqa_e5_v5_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "nv_rerankqa_mistral_4b_v3_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "mixtral_7b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "mistral_7b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama3_8b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama3_70b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama31_70b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama31_8b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama31_405b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+
+# Machine type selections
+variable "a100_nv_embedqa_mistral_7b_v2_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "h100_machine_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "l4_machine_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_nv_embedqa_e5_v5_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_nv_rerankqa_mistral_4b_v3_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_mixtral_7b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_mistral_7b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama3_8b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama3_70b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama31_70b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama31_8b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "compatible_cluster_location" {
+  type = string
+  description = "Cluster location"
+}
+
+
+# Api key
+variable "production" {
+  type = bool
+  description = "Whether to use the production API key"
+}
+
+variable "api_key" {
+  type = string
+  description = "The API key (used if production is true)"
+  sensitive = true  // Mark this as sensitive to avoid logging
 }
 
 ## NVIDIA NIM specific config

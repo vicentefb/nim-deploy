@@ -113,32 +113,6 @@ spec:
             - variableName: model_name
               variableValues: ["nv-embedqa-mistral-7b-v2"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_nv_embedqa_mistral_7b_v2_selection:
-           name: l4_nv_embedqa_mistral_7b_v2_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "nv_embedqa_mistral_7b_v2_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_nv_embedqa_mistral_7b_v2_selection:
-           name: h100_nv_embedqa_mistral_7b_v2_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "nv_embedqa_mistral_7b_v2_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_nv_embedqa_mistral_7b_v2_selection:
            name: a100_nv_embedqa_mistral_7b_v2_selection
            title: Machine types
@@ -149,45 +123,6 @@ spec:
            toggleUsingVariables:
             - variableName: "nv_embedqa_mistral_7b_v2_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_nv_embedqa_mistral_7b_v2_compatibility_location:
-           name: h100_nv_embedqa_mistral_7b_v2_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_nv_embedqa_mistral_7b_v2_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_nv_embedqa_mistral_7b_v2_compatibility_location:
-           name: a100_nv_embedqa_mistral_7b_v2_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_nv_embedqa_mistral_7b_v2_selection"
-              variableValues: ["a2-ultragpu-1g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_nv_embedqa_mistral_7b_v2_compatibility_location:
-           name: l4_nv_embedqa_mistral_7b_v2_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "l4_nv_embedqa_mistral_7b_v2_selection"
-              variableValues: ["g2-standard-24" ,g2-standard-48" ,"g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         nv_embedqa_e5_v5_compatibility:
           name: nv_embedqa_e5_v5_compatibility
@@ -204,32 +139,6 @@ spec:
             - variableName: model_name
               variableValues: ["nv-embedqa-e5-v5"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_nv_embedqa_e5_v5_selection:
-           name: l4_nv_embedqa_e5_v5_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "nv_embedqa_e5_v5_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_nv_embedqa_e5_v5_selection:
-           name: h100_nv_embedqa_e5_v5_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "nv_embedqa_e5_v5_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_nv_embedqa_e5_v5_selection:
            name: a100_nv_embedqa_e5_v5_selection
            title: Machine types
@@ -240,45 +149,6 @@ spec:
            toggleUsingVariables:
             - variableName: "nv_embedqa_e5_v5_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_nv_embedqa_e5_v5_compatibility_location:
-           name: h100_nv_embedqa_e5_v5_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_nv_embedqa_e5_v5_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_nv_embedqa_e5_v5_compatibility_location:
-           name: a100_nv_embedqa_e5_v5_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_nv_embedqa_e5_v5_selection"
-              variableValues: ["a2-ultragpu-1g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_nv_embedqa_e5_v5_compatibility_location:
-           name: l4_nv_embedqa_e5_v5_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "l4_nv_embedqa_e5_v5_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         nv_rerankqa_mistral_4b_v3_compatibility:
           name: nv_rerankqa_mistral_4b_v3_compatibility
@@ -295,32 +165,6 @@ spec:
             - variableName: model_name
               variableValues: ["nv-rerankqa-mistral-4b-v3"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_nv_rerankqa_mistral_4b_v3_selection:
-           name: l4_nv_rerankqa_mistral_4b_v3_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "nv_rerankqa_mistral_4b_v3_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_nv_rerankqa_mistral_4b_v3_selection:
-           name: h100_nv_rerankqa_mistral_4b_v3_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "nv_rerankqa_mistral_4b_v3_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_nv_rerankqa_mistral_4b_v3_selection:
            name: a100_nv_rerankqa_mistral_4b_v3_selection
            title: Machine types
@@ -331,45 +175,6 @@ spec:
            toggleUsingVariables:
             - variableName: "nv_rerankqa_mistral_4b_v3_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_nv_rerankqa_mistral_4b_v3_compatibility_location:
-           name: h100_nv_rerankqa_mistral_4b_v3_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_nv_rerankqa_mistral_4b_v3_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_nv_rerankqa_mistral_4b_v3_compatibility_location:
-           name: a100_nv_rerankqa_mistral_4b_v3_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_nv_rerankqa_mistral_4b_v3_selection"
-              variableValues: ["a2-ultragpu-1g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_nv_rerankqa_mistral_4b_v3_compatibility_location:
-           name: l4_nv_rerankqa_mistral_4b_v3_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "l4_nv_rerankqa_mistral_4b_v3_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         mixtral_7b_compatibility:
           name: mixtral_7b_compatibility
@@ -386,32 +191,6 @@ spec:
             - variableName: model_name
               variableValues: ["mixtral-8x7b-instruct-v01"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_mixtral_7b_selection:
-           name: l4_mistral_7b_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "mixtral_7b_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_mixtral_7b_selection:
-           name: h100_mixtral_7b_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "mixtral_7b_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_mixtral_7b_selection:
            name: a100_mixtral_7b_selection
            title: Machine types
@@ -424,45 +203,6 @@ spec:
            toggleUsingVariables:
             - variableName: "mixtral_7b_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_mixtral_7b_compatibility_location:
-           name: h100_mixtral_7b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_mixtral_7b_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_mixtral_7b_compatibility_location:
-           name: a100_mixtral_7b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_mixtral_7b_selection"
-              variableValues: ["a2-ultragpu-2g", "a2-ultragpu-4g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_mixtral_7b_compatibility_location:
-           name: l4_mixtral_7b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "l4_mixtral_7b_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         mistral_7b_compatibility:
           name: mistral_7b_compatibility
@@ -479,32 +219,6 @@ spec:
             - variableName: model_name
               variableValues: ["mistral-7b-instruct-v0.3"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_mistral_7b_selection:
-           name: l4_mistral_7b_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "mistral_7b_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_mistral_7b_selection:
-           name: h100_mistral_7b_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "mistral_7b_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_mistral_7b_selection:
            name: a100_mistral_7b_selection
            title: Machine types
@@ -517,45 +231,6 @@ spec:
            toggleUsingVariables:
             - variableName: "mistral_7b_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_mistral_7b_compatibility_location:
-           name: h100_mistral_7b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_mistral_7b_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_mistral_7b_compatibility_location:
-           name: a100_mistral_7b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_mistral_7b_selection"
-              variableValues: ["a2-ultragpu-1g", "a2-ultragpu-2g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_mistral_7b_compatibility_location:
-           name: l4_mistral_7b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "l4_mistral_7b_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         llama3_8b_compatibility:
           name: llama3_8b_compatibility
@@ -572,32 +247,6 @@ spec:
             - variableName: model_name
               variableValues: ["llama3-8b-instruct"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_llama3_8b_selection:
-           name: l4_llama3_8b_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "llama3_8b_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama3_8b_selection:
-           name: h100_llama3_8b_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "llama3_8b_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_llama3_8b_selection:
            name: a100_llama3_8b_selection
            title: Machine types
@@ -610,45 +259,6 @@ spec:
            toggleUsingVariables:
             - variableName: "llama3_8b_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama3_8b_compatibility_location:
-           name: h100_llama3_8b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_llama3_8b_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_llama3_8b_compatibility_location:
-           name: a100_llama3_8b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_llama3_8b_selection"
-              variableValues: ["a2-ultragpu-1g", "a2-ultragpu-2g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_llama3_8b_compatibility_location:
-           name: l4_llama3_8b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "l4_llama3_8b_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         llama3_70b_compatibility:
           name: llama3_70b_compatibility
@@ -663,17 +273,6 @@ spec:
             - variableName: model_name
               variableValues: ["llama3-70b-instruct"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama3_70b_selection:
-           name: h100_llama3_70b_selection
-           title: Machine type
-           section: required_config
-           enumValueLabels:
-            - label: "a3-highgpu-8g"
-              value: "a3-highgpu-8g"
-           toggleUsingVariables:
-            - variableName: "llama3_70b_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_llama3_70b_selection:
            name: a100_llama3_70b_selection
            title: Machine types
@@ -684,32 +283,6 @@ spec:
            toggleUsingVariables:
             - variableName: "llama3_70b_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama3_70b_compatibility_location:
-           name: h100_llama3_70b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "h100_llama3_70b_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_llama3_70b_compatibility_location:
-           name: a100_llama3_70b_compatibility_location
-           title: Region
-           section: required_config
-           xGoogleProperty:
-            type: ET_GCE_REGION
-            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-            gce_region:
-              allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-           toggleUsingVariables:
-            - variableName: "a100_llama3_70b_selection"
-              variableValues: ["a2-ultragpu-4g"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         llama31_70b_compatibility:
           name: llama31_70b_compatibility
@@ -726,32 +299,6 @@ spec:
             - variableName: model_name
               variableValues: ["llama-3.1-70b-instruct"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_llama31_70b_selection:
-           name: l4_llama31_70b_selection
-           title: Machine Type
-           section: required_config
-           enumValueLabels:
-            - label: "g2-standard-24"
-              value: "g2-standard-24"
-            - label: "g2-standard-48"
-              value: "g2-standard-48"
-            - label: "g2-standard-96"
-              value: "g2-standard-96"
-           toggleUsingVariables:
-            - variableName: "llama31_70b_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama31_70b_selection:
-          name: h100_llama31_70b_selection
-          title: Machine type
-          section: required_config
-          enumValueLabels:
-           - label: "a3-highgpu-8g"
-             value: "a3-highgpu-8g"
-          toggleUsingVariables:
-           - variableName: "llama31_70b_compatibility"
-             variableValues: ["H100(80GB)"]
-             type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_llama31_70b_selection:
           name: a100_llama31_70b_selection
           title: Machine types
@@ -764,45 +311,6 @@ spec:
           toggleUsingVariables:
             - variableName: "llama31_70b_compatibility"
               variableValues: ["A100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama31_70b_compatibility_location:
-          name: h100_llama31_70b_compatibility_location
-          title: Region
-          section: required_config
-          xGoogleProperty:
-           type: ET_GCE_REGION
-           # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-           gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-          toggleUsingVariables:
-            - variableName: "h100_llama31_70b_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_llama31_70b_compatibility_location:
-          name: a100_llama31_70b_compatibility_location
-          title: Region
-          section: required_config
-          xGoogleProperty:
-           type: ET_GCE_REGION
-           # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-           gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-          toggleUsingVariables:
-            - variableName: "a100_llama31_70b_selection"
-              variableValues: ["a2-ultragpu-4g", "a2-ultragpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_llama31_70b_compatibility_location:
-          name: l4_llama31_70b_compatibility_location
-          title: Region
-          section: required_config
-          xGoogleProperty:
-           type: ET_GCE_REGION
-           # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-           gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-          toggleUsingVariables:
-            - variableName: "l4_llama31_70b_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         llama31_8b_compatibility:
           name: llama31_8b_compatibility
@@ -819,32 +327,6 @@ spec:
             - variableName: model_name
               variableValues: ["llama-3.1-8b-instruct"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_llama31_8b_selection:
-          name: l4_llama31_8b_selection
-          title: Machine Type
-          section: required_config
-          enumValueLabels:
-           - label: "g2-standard-24"
-             value: "g2-standard-24"
-           - label: "g2-standard-48"
-             value: "g2-standard-48"
-           - label: "g2-standard-96"
-             value: "g2-standard-96"
-          toggleUsingVariables:
-            - variableName: "llama31_8b_compatibility"
-              variableValues: ["L4"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama31_8b_selection:
-          name: h100_llama31_8b_selection
-          title: Machine type
-          section: required_config
-          enumValueLabels:
-           - label: "a3-highgpu-8g"
-             value: "a3-highgpu-8g"
-          toggleUsingVariables:
-            - variableName: "llama31_8b_compatibility"
-              variableValues: ["H100(80GB)"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         a100_llama31_8b_selection:
           name: a100_llama31_8b_selection
           title: Machine types
@@ -858,45 +340,6 @@ spec:
             - variableName: "llama31_8b_compatibility"
               variableValues: ["A100(80GB)"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama31_8b_compatibility_location:
-          name: h100_llama31_8b_compatibility_location
-          title: Region
-          section: required_config
-          xGoogleProperty:
-           type: ET_GCE_REGION
-           # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-           gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-          toggleUsingVariables:
-            - variableName: "h100_llama31_8b_selection"
-              variableValues: ["a3-highgpu-8g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        a100_llama31_8b_compatibility_location:
-          name: a100_llama31_8b_compatibility_location
-          title: Region
-          section: required_config
-          xGoogleProperty:
-           type: ET_GCE_REGION
-           # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-           gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-          toggleUsingVariables:
-            - variableName: "a100_llama31_8b_selection"
-              variableValues: ["a2-ultragpu-1g", "a2-ultragpu-2g"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        l4_llama31_8b_compatibility_location:
-          name: l4_llama31_8b_compatibility_location
-          title: Region
-          section: required_config
-          xGoogleProperty:
-           type: ET_GCE_REGION
-           # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-           gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-          toggleUsingVariables:
-            - variableName: "l4_llama31_8b_selection"
-              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         llama31_405b_compatibility:
           name: llama31_405b_compatibility
           title: GPU type
@@ -907,30 +350,123 @@ spec:
           toggleUsingVariables:
             - variableName: model_name
               variableValues: ["llama-3.1-405b-instruct"]
-              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama31_405b_selection:
-          name: h100_llama31_405b_selection
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED       
+        h100_machine_selection:
+          name: h100_machine_selection
           title: Machine Type
           section: required_config
           enumValueLabels:
-           - label: "a3-highgpu-8g"
-             value: "a3-highgpu-8g"
+            - label: "a3-highgpu-8g"
+              value: "a3-highgpu-8g"
           toggleUsingVariables:
+            - variableName: "nv_embedqa_mistral_7b_v2_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "nv_embedqa_e5_v5_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "nv_rerankqa_mistral_4b_v3_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "mixtral_7b_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "mistral_7b_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama3_8b_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama3_70b_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama31_70b_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama31_8b_compatibility"
+              variableValues: ["H100(80GB)"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
             - variableName: "llama31_405b_compatibility"
               variableValues: ["H100(80GB)"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
-        h100_llama31_405b_compatibility_location:
-          name: h100_llama31_40b_compatibility_location
+        l4_machine_selection:
+          name: l4_machine_selection
+          title: Machine Type
+          section: required_config
+          enumValueLabels:
+            - label: "g2-standard-24"
+              value: "g2-standard-24"
+            - label: "g2-standard-48"
+              value: "g2-standard-48"
+            - label: "g2-standard-96"
+              value: "g2-standard-96"
+          toggleUsingVariables:
+            - variableName: "nv_embedqa_mistral_7b_v2_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "nv_embedqa_e5_v5_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "nv_rerankqa_mistral_4b_v3_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "mixtral_7b_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "mistral_7b_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama3_8b_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama31_70b_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: "llama31_8b_compatibility"
+              variableValues: ["L4"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+        compatible_cluster_location:
+          name: compatible_cluster_location
           title: Region
           section: required_config
           xGoogleProperty:
            type: ET_GCE_REGION
            # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
            gce_region:
-             allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
+            allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
           toggleUsingVariables:
-            - variableName: "h100_llama31_405b_selection"
+            - variableName: h100_machine_selection
               variableValues: ["a3-highgpu-8g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_nv_embedqa_mistral_7b_v2_selection
+              variableValues: ["a2-ultragpu-1g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: l4_machine_selection
+              variableValues: ["g2-standard-24", "g2-standard-48", "g2-standard-96"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_nv_embedqa_e5_v5_selection
+              variableValues: ["a2-ultragpu-1g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_nv_rerankqa_mistral_4b_v3_selection
+              variableValues: ["a2-ultragpu-1g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_mixtral_7b_selection
+              variableValues: ["a2-ultragpu-2g", "a2-ultragpu-4g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_mistral_7b_selection
+              variableValues: ["a2-ultragpu-1g", "a2-ultragpu-2g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_llama3_8b_selection
+              variableValues: ["a2-ultragpu-1g", "a2-ultragpu-2g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_llama3_70b_selection
+              variableValues: ["a2-ultragpu-4g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_llama31_70b_selection
+              variableValues: ["a2-ultragpu-4g", "a2-ultragpu-8g"]
+              type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
+            - variableName: a100_llama31_8b_selection
+              variableValues: ["a2-ultragpu-1g", "a2-ultragpu-2g"]
               type: DISPLAY_VARIABLE_TOGGLE_TYPE_UNSPECIFIED
         cluster_location:
           name: cluster_location
@@ -941,89 +477,6 @@ spec:
             # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
             gce_region:
               allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
-        region_based_vm:
-          name: region_based_vm
-          title: Cluster and GPU location
-          section: required_config
-          enumValueLabels:
-            - label: "L4 asia-east1 g2-standard-24"
-              value: "L4 asia-east1 g2-standard-24"
-            - label: "L4 asia-south1 g2-standard-24"
-              value: "L4 asia-south1 g2-standard-24"
-            - label: "L4 europe-west1 g2-standard-24"
-              value: "L4 europe-west1 g2-standard-24"
-            - label: "L4 us-central1 g2-standard-24" 
-              value: "L4 us-central1 g2-standard-24"
-            - label: "L4 us-east4 g2-standard-24"
-              value: "L4 us-east4 g2-standard-24"
-            - label: "L4 us-west1 g2-standard-24" 
-              value: "L4 us-west1 g2-standard-24"
-            - label: "L4 asia-east1 g2-standard-48"
-              value: "L4 asia-east1 g2-standard-48"
-            - label: "L4 asia-south1 g2-standard-48"
-              value: "L4 asia-south1 g2-standard-48"
-            - label: "L4 europe-west1 g2-standard-48"
-              value: "L4 europe-west1 g2-standard-48"
-            - label: "L4 us-central1 g2-standard-48"
-              value: "L4 us-central1 g2-standard-48"
-            - label: "L4 us-east4 g2-standard-48"
-              value: "L4 us-east4 g2-standard-48"
-            - label: "L4 us-west1 g2-standard-48"
-              value: "L4 us-west1 g2-standard-48"
-            - label: "L4 asia-east1 g2-standard-96"
-              value: "L4 asia-east1 g2-standard-96"
-            - label: "L4 asia-south1 g2-standard-96"
-              value: "L4 asia-south1 g2-standard-96"
-            - label: "L4 europe-west1 g2-standard-96"
-              value: "L4 europe-west1 g2-standard-96"
-            - label: "L4 us-central1 g2-standard-96"
-              value: "L4 us-central1 g2-standard-96"
-            - label: "L4 us-east4 g2-standard-96"
-              value: "L4 us-east4 g2-standard-96"
-            - label: "L4 us-west1 g2-standard-96"
-              value: "L4 us-west1 g2-standard-96"
-            - label: "H100(80GB) asia-northeast1 a3-highgpu-8g"
-              value: "H100(80GB) asia-northeast1 a3-highgpu-8g"
-            - label: "H100(80GB) asia-south1 a3-highgpu-8g"
-              value: "H100(80GB) asia-south1 a3-highgpu-8g"
-            - label: "H100(80GB) europe-west1 a3-highgpu-8g"
-              value: "H100(80GB) europe-west1 a3-highgpu-8g"
-            - label: "H100(80GB) us-central1 a3-highgpu-8g"
-              value: "H100(80GB) us-central1 a3-highgpu-8g"
-            - label: "H100(80GB) us-east4 a3-highgpu-8g"
-              value: "H100(80GB) us-east4 a3-highgpu-8g"
-            - label: "H100(80GB) us-west1 a3-highgpu-8g"
-              value: "H100(80GB) us-west1 a3-highgpu-8g"
-            - label: "H100(80GB) us-west4 a3-highgpu-8g"
-              value: "H100(80GB) us-west4 a3-highgpu-8g"
-            - label: "A100(80GB) asia-southeast1 a2-ultragpu-1g"
-              value: "A100(80GB) asia-southeast1 a2-ultragpu-1g"
-            - label: "A100(80GB) europe-west4 a2-ultragpu-1g"
-              value: "A100(80GB) europe-west4 a2-ultragpu-1g"
-            - label: "A100(80GB) us-central1 a2-ultragpu-1g"
-              value: "A100(80GB) us-central1 a2-ultragpu-1g"
-            - label: "A100(80GB) us-east4 a2-ultragpu-1g"
-              value: "A100(80GB) us-east4 a2-ultragpu-1g"
-            - label: "A100(80GB) asia-southeast1 a2-ultragpu-4g"
-              value: "A100(80GB) asia-southeast1 a2-ultragpu-4g"
-            - label: "A100(80GB) europe-west4 a2-ultragpu-4g"
-              value: "A100(80GB) europe-west4 a2-ultragpu-4g"
-            - label: "A100(80GB) us-central1 a2-ultragpu-4g"
-              value: "A100(80GB) us-central1 a2-ultragpu-4g"
-            - label: "A100(80GB) us-east4 a2-ultragpu-4g"
-              value: "A100(80GB) us-east4 a2-ultragpu-4g"
-            - label: "A100(80GB) asia-northeast1 a2-ultragpu-8g"
-              value: "A100(80GB) asia-northeast1 a2-ultragpu-8g"
-            - label: "A100(80GB) asia-south1 a2-ultragpu-8g"
-              value: "A100(80GB) asia-south1 a2-ultragpu-8g"
-            - label: "A100(80GB) europe-west1 a2-ultragpu-8g"
-              value: "A100(80GB) europe-west1 a2-ultragpu-8g"
-            - label: "A100(80GB) us-central1 a2-ultragpu-8g"
-              value: "A100(80GB) us-central1 a2-ultragpu-8g"
-            - label: "A100(80GB) us-east4 a2-ultragpu-8g"
-              value: "A100(80GB) us-east4 a2-ultragpu-8g"
-            - label: "A100(80GB) us-west1 a2-ultragpu-8g"
-              value: "A100(80GB) us-west1 a2-ultragpu-8g"
         model_name:
           name: model_name
           title: NIM Model name

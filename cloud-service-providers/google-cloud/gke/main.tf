@@ -42,14 +42,73 @@ locals {
     "nvidia-h100-80gb" = var.gpu_locations_h100_80gb
   }
 
-  region_vm        = split(" ", var.region_based_vm)
-  cluster_location = local.region_vm[length(local.region_vm) - 2]
-  machine_type = {
-    "machine_type" = local.region_vm[length(local.region_vm) - 1]
+  #region_vm        = split(" ", var.region_based_vm)
+  #cluster_location = local.region_vm[length(local.region_vm) - 2]
+
+  
+  #machine_type = {
+  #  "machine_type" = local.region_vm[length(local.region_vm) - 1]
+  #}
+
+  cluster_location = var.compatible_cluster_location
+
+  machine_type_mapping = {
+      "nv-embedqa-mistral-7b-v2_A100(80GB)" = var.a100_nv_embedqa_mistral_7b_v2_selection
+      "nv-embedqa-mistral-7b-v2_H100(80GB)" = var.h100_machine_selection
+      "nv-embedqa-mistral-7b-v2_L4" = var.l4_machine_selection
+      "nv-embedqa-e5-v5_A100(80GB)" = var.a100_nv_embedqa_e5_v5_selection
+      "nv-embedqa-e5-v5_H100(80GB)" = var.h100_machine_selection
+      "nv-embedqa-e5-v5_L4" = var.l4_machine_selection
+      "nv-rerankqa-mistral-4b-v3_A100(80GB)" = var.a100_nv_rerankqa_mistral_4b_v3_selection
+      "nv-rerankqa-mistral-4b-v3_H100(80GB)" = var.h100_machine_selection
+      "nv-rerankqa-mistral-4b-v3_L4" = var.l4_machine_selection
+      "mixtral-8x7b-instruct-v01_A100(80GB)" = var.a100_mixtral_7b_selection
+      "mixtral-8x7b-instruct-v01_H100(80GB)" = var.h100_machine_selection
+      "mixtral-8x7b-instruct-v01_L4" = var.l4_machine_selection
+      "mistral-7b-instruct-v0.3_A100(80GB)" = var.a100_mistral_7b_selection
+      "mistral-7b-instruct-v0.3_H100(80GB)" = var.h100_machine_selection
+      "mistral-7b-instruct-v0.3_L4" = var.l4_machine_selection
+      "llama3-8b-instruct_A100(80GB)" = var.a100_llama3_8b_selection
+      "llama3-8b-instruct_H100(80GB)" = var.h100_machine_selection
+      "llama3-8b-instruct_L4" = var.l4_machine_selection
+      "llama3-70b-instruct_A100(80GB)" = var.a100_llama3_70b_selection
+      "llama3-70b-instruct_H100(80GB)" = var.h100_machine_selection
+      "llama-3.1-70b-instruct_A100(80GB)" = var.a100_llama31_70b_selection
+      "llama-3.1-70b-instruct_H100(80GB)" = var.h100_machine_selection
+      "llama-3.1-70b-instruct_L4" = var.l4_machine_selection
+      "llama-3.1-8b-instruct_A100(80GB)" = var.a100_llama31_8b_selection
+      "llama-3.1-8b-instruct_H100(80GB)" = var.h100_machine_selection
+      "llama-3.1-8b-instruct_L4" = var.l4_machine_selection
+      "llama-3.1-405b-instruct_H100(80GB)" = var.h100_machine_selection
   }
-  gpu_type = lookup(var.vm_gpu_spec_list, local.region_vm[length(local.region_vm) - 1])
+
+ compatibility_variable_mapping = {
+    "nv-embedqa-mistral-7b-v2"  = var.nv_embedqa_mistral_7b_v2_compatibility
+    "nv-embedqa-e5-v5"         = var.nv_embedqa_e5_v5_compatibility
+    "nv-rerankqa-mistral-4b-v3" = var.nv_rerankqa_mistral_4b_v3_compatibility
+    "mixtral-8x7b-instruct-v01" = var.mixtral_7b_compatibility
+    "mistral-7b-instruct-v0.3"  = var.mistral_7b_compatibility
+    "llama3-8b-instruct"       = var.llama3_8b_compatibility
+    "llama3-70b-instruct"      = var.llama3_70b_compatibility
+    "llama-3.1-70b-instruct"   = var.llama31_70b_compatibility
+    "llama-3.1-8b-instruct"    = var.llama31_8b_compatibility
+    "llama-3.1-405b-instruct"  = var.llama31_405b_compatibility
+  }
+
+  compatibility_variable = lookup(local.compatibility_variable_mapping, var.model_name, "")
+
+  machine_type = lookup(local.machine_type_mapping, "${var.model_name}_${local.compatibility_variable}", "")
+
+  # gpu_type = lookup(var.vm_gpu_spec_list, local.region_vm[length(local.region_vm) - 1])
+
+
+  # Determine GPU type based on model_name and GPU compatibility
+  gpu_type = lookup(var.vm_gpu_spec_list, local.machine_type)
 
   gpu_location = lookup(local.all_gpu_locations, local.gpu_type.accelerator_type, {})
+
+  ngc_api_key = var.production? var.api_key: var.ngc_api_key  // Use api_key if production is true
+
   
   accelerator_type = {
     "accelerator_type" = local.gpu_type.accelerator_type
@@ -117,9 +176,36 @@ locals {
   zone = length(split("-", local.cluster_location)) > 2 ? split(",", local.cluster_location) : split(",", local.gpu_location[local.region])
 
   # Update gpu_pools with node_locations according to region and zone gpu availibility, if not provided
-  gpu_pools = [for elm in var.gpu_pools : (local.regional && contains(keys(local.gpu_location), local.region) && elm["node_locations"] == "") ? merge(elm, { "node_locations" : local.gpu_location[local.region] }) : elm]
+  #gpu_pools = [for elm in var.gpu_pools : (local.regional && contains(keys(local.gpu_location), local.region) && elm["node_locations"] == "") ? merge(elm, { "node_locations" : local.gpu_location[local.region] }) : elm]
 
-  gpu_pools_configured = [merge(local.gpu_pools[0], local.machine_type, local.accelerator_type, local.accelerator_count, local.local_ssd_ephemeral_storage_count)]
+  gpu_pools = [
+    for elm in var.gpu_pools : {
+        machine_type = local.machine_type
+        accelerator_type = local.accelerator_type.accelerator_type
+        accelerator_count = local.accelerator_count.accelerator_count
+        local_ssd_ephemeral_storage_count = local.local_ssd_ephemeral_storage_count.local_ssd_ephemeral_storage_count
+        node_locations = (local.regional && contains(keys(local.gpu_location), local.region) && elm["node_locations"] == "") ? local.gpu_location[local.region] : (elm["node_locations"] != "" ? elm["node_locations"] : null)
+        name =  elm.name
+        disk_size_gb = elm.disk_size_gb
+        disk_type = elm.disk_type
+      }
+    ]
+
+  #gpu_pools_configured = [merge(local.gpu_pools[0], local.machine_type, local.accelerator_type, local.accelerator_count, local.local_ssd_ephemeral_storage_count)]
+ 
+  # Extract machine_type value from the map
+ gpu_pools_configured = [
+     for pool in local.gpu_pools : {
+        machine_type = pool.machine_type
+        accelerator_type = pool.accelerator_type
+        accelerator_count = pool.accelerator_count
+        local_ssd_ephemeral_storage_count = pool.local_ssd_ephemeral_storage_count
+        node_locations = pool.node_locations
+        name = pool.name
+        disk_size_gb = pool.disk_size_gb
+        disk_type = pool.disk_type
+      }
+  ]
 }
 
 output "cluster_name" {
@@ -128,6 +214,18 @@ output "cluster_name" {
 
 output "cluster_location" {
   value = local.cluster_location
+}
+
+output "machine_type_output" {
+  value = local.machine_type
+}
+
+output "gpu_type_output" {
+  value = local.gpu_type
+}
+
+output "gpu_location_output" {
+  value = local.gpu_location
 }
 
 module "gke-cluster" {

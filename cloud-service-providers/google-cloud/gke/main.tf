@@ -194,18 +194,18 @@ locals {
   #gpu_pools_configured = [merge(local.gpu_pools[0], local.machine_type, local.accelerator_type, local.accelerator_count, local.local_ssd_ephemeral_storage_count)]
  
   # Extract machine_type value from the map
- gpu_pools_configured = [
-     for pool in local.gpu_pools : {
-        machine_type = pool.machine_type
-        accelerator_type = pool.accelerator_type
-        accelerator_count = pool.accelerator_count
-        local_ssd_ephemeral_storage_count = pool.local_ssd_ephemeral_storage_count
-        node_locations = pool.node_locations
-        name = pool.name
-        disk_size_gb = pool.disk_size_gb
-        disk_type = pool.disk_type
-      }
-  ]
+  #gpu_pools_configured = [
+  #    for pool in local.gpu_pools : {
+  #       machine_type = pool.machine_type
+  #       accelerator_type = pool.accelerator_type
+  #       accelerator_count = pool.accelerator_count
+  #       local_ssd_ephemeral_storage_count = pool.local_ssd_ephemeral_storage_count
+  #       node_locations = pool.node_locations
+  #       name = pool.name
+  #       disk_size_gb = pool.disk_size_gb
+  #       disk_type = pool.disk_type
+  #     }
+  # ]
 }
 
 output "cluster_name" {
@@ -255,7 +255,7 @@ module "gke-cluster" {
   ## pools config variables
   cpu_pools                   = var.cpu_pools
   enable_gpu                  = var.enable_gpu
-  gpu_pools = local.gpu_pools_configured
+  gpu_pools = local.gpu_pools
   all_node_pools_oauth_scopes = var.all_node_pools_oauth_scopes
   all_node_pools_labels       = var.all_node_pools_labels
   all_node_pools_metadata     = var.all_node_pools_metadata

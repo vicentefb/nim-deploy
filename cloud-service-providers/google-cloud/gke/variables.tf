@@ -329,7 +329,7 @@ variable "gpu_locations_h100_80gb" {
     "asia-southeast1"      = "asia-southeast1-b,asia-southeast1-c"
     "europe-west1"         = "europe-west1-b"
     "us-central1"          = "us-central1-a"
-    "us-east4"             = "us-east4-a,us-east4-b"
+    "us-east4"             = "us-east4-b"
     "us-west1"             = "us-west1-a,us-west1-b"
     "us-west4"             = "us-west4-a"
   }
@@ -375,7 +375,13 @@ variable "vm_gpu_spec_list" {
       local_ssd_count   = 1
       gpu_family        = "a100"
     }
-    a2-ultragpu-4g = {
+    a2-ultragpu-2g = {
+      accelerator_type  = "nvidia-a100-80gb"
+      accelerator_count = 2
+      local_ssd_count   = 2
+      gpu_family        = "a100"
+    }
+    a2-ultragpu-4g = { 
       accelerator_type  = "nvidia-a100-80gb"
       accelerator_count = 4
       local_ssd_count   = 4
@@ -390,11 +396,11 @@ variable "vm_gpu_spec_list" {
   }
 }
 
-variable "region_based_vm" {
-  type        = string
-  description = "Cluster and GPU location"
-  default     = "L4 us-east4 g2-standard-24"
-}
+#variable "region_based_vm" {
+#  type        = string
+#  description = "Cluster and GPU location"
+#  default     = "L4 us-central1 g2-standard-24"
+#}
 
 ## NVIDIA NIM specific config
 variable "nim_list" {
@@ -546,7 +552,7 @@ variable "repository" {
 variable "model_name" {
   type        = string
   description = "Name of the NIM model"
-  default     = "meta/llama3-8b-instruct​"
+  #default     = "llama3-8b-instruct​"
 }
 
 variable "tag" {
@@ -584,4 +590,113 @@ variable "goog_labels" {
   default = {
     goog-partner-solution = "isol_plb32_0014m00001hpys5qag_iwykuqcrgtmoiokaxboelvp35cwormjz"
   }
+}
+
+# Api key
+variable "production" {
+  type = bool
+  description = "Whether to use the production API key"
+  default = false
+}
+
+# NIM variables
+variable "llama3_8b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama31_8b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama3_70b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+
+variable "llama31_70b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "llama31_405b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "mistral_7b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "mixtral_7b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "nv_mistral_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "nv_mistral_7b_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "nv_embedqa_e5_compatibility" {
+  type = string
+  description = "GPU type"
+}
+
+variable "l4_machine_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama3_8b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama3_70b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "h100_machine_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_llama31_70b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_mixtral_7b_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "a100_nv_mistral_selection" {
+  type = string
+  description = "Machine type"
+}
+
+variable "compatible_cluster_location_l4" {
+  type = string
+  description = "Cluster location"
+}
+
+variable "compatible_cluster_location_a100" {
+  type = string
+  description = "Cluster location"
+}
+
+variable "compatible_cluster_location_h100" {
+  type = string
+  description = "Cluster location"
 }

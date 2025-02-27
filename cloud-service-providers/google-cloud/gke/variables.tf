@@ -300,7 +300,7 @@ variable "gpu_locations_a100" {
   # gcloud compute accelerator-types list \
   # --filter="name:nvidia-a100-80gb" \
   # --format="value(zone)" \
-   | sort
+  # | sort
 
   default = {
     "asia-southeast1" = "asia-southeast1-c"

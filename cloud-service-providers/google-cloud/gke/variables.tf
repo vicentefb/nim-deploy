@@ -94,10 +94,6 @@ variable "release_channel" {
   default = "REGULAR"
 }
 
-#variable "cluster_location" {
-#  type = string
-#}
-
 variable "ip_range_pods" {
   type    = string
   default = ""
@@ -396,12 +392,6 @@ variable "vm_gpu_spec_list" {
   }
 }
 
-#variable "region_based_vm" {
-#  type        = string
-#  description = "Cluster and GPU location"
-#  default     = "L4 us-central1 g2-standard-24"
-#}
-
 ## NVIDIA NIM specific config
 variable "nim_list" {
   type        = map(string)
@@ -552,7 +542,7 @@ variable "repository" {
 variable "model_name" {
   type        = string
   description = "Name of the NIM model"
-  #default     = "llama3-8b-instruct​"
+  default     = "llama3-8b-instruct"
 }
 
 variable "tag" {
@@ -603,100 +593,120 @@ variable "production" {
 variable "llama3_8b_compatibility" {
   type = string
   description = "GPU type"
+  default = "L4"
 }
 
 variable "llama31_8b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "llama3_70b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 
 variable "llama31_70b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "llama31_405b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "mistral_7b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "mixtral_7b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "nv_mistral_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "nv_mistral_7b_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "nv_embedqa_e5_compatibility" {
   type = string
   description = "GPU type"
+  default = ""
 }
 
 variable "l4_machine_selection" {
   type = string
   description = "Machine type"
+  default = "g2-standard-24"
 }
 
 variable "a100_llama3_8b_selection" {
   type = string
   description = "Machine type"
+  default = ""
 }
 
 variable "a100_llama3_70b_selection" {
   type = string
   description = "Machine type"
+  default = ""
 }
 
 variable "h100_machine_selection" {
   type = string
   description = "Machine type"
+  default = ""
 }
 
 variable "a100_llama31_70b_selection" {
   type = string
   description = "Machine type"
+  default = ""
 }
 
 variable "a100_mixtral_7b_selection" {
   type = string
   description = "Machine type"
+  default = ""
 }
 
 variable "a100_nv_mistral_selection" {
   type = string
   description = "Machine type"
+  default = ""
 }
 
 variable "compatible_cluster_location_l4" {
   type = string
   description = "Cluster location"
+  default = "us-central1"
 }
 
 variable "compatible_cluster_location_a100" {
   type = string
   description = "Cluster location"
+  default = ""
 }
 
 variable "compatible_cluster_location_h100" {
   type = string
   description = "Cluster location"
+  default = ""
 }

@@ -30,15 +30,6 @@ spec:
           title: Additional Labels
           invisible: true
           section: required_config
-        #cluster_location:
-        #  name: cluster_location
-        #  title: Cluster Location
-        #  section: required_config
-        #  xGoogleProperty:
-        #    type: ET_GCE_REGION
-        #    # specified regions have L4, A2 and A3 GPUs https://cloud.google.com/compute/docs/gpus/gpu-regions-zones#view-using-tools
-        #    gce_region:
-        #      allowlisted_regions: ["asia-east1","asia-southeast1","europe-west1","europe-west4","us-central1","us-east1","us-east4","us-west1","us-west4"]
         cluster_name:
           name: cluster_name
           title: Cluster Name
@@ -92,89 +83,6 @@ spec:
           title: NIM image tag
           section: required_config
           invisible: true     
-        #region_based_vm:
-        #  name: region_based_vm
-        #  title: Cluster and GPU location
-        #  section: required_config
-        #  enumValueLabels:
-        #    - label: "L4 asia-east1 g2-standard-24"
-        #      value: "L4 asia-east1 g2-standard-24"
-        #    - label: "L4 asia-south1 g2-standard-24"
-        #      value: "L4 asia-south1 g2-standard-24"
-        #    - label: "L4 europe-west1 g2-standard-24"
-        #      value: "L4 europe-west1 g2-standard-24"
-        #    - label: "L4 us-central1 g2-standard-24" 
-        #      value: "L4 us-central1 g2-standard-24"
-        #    - label: "L4 us-east4 g2-standard-24"
-        #      value: "L4 us-east4 g2-standard-24"
-        #    - label: "L4 us-west1 g2-standard-24" 
-        #      value: "L4 us-west1 g2-standard-24"
-        #    - label: "L4 asia-east1 g2-standard-48"
-        #      value: "L4 asia-east1 g2-standard-48"
-        #    - label: "L4 asia-south1 g2-standard-48"
-        #      value: "L4 asia-south1 g2-standard-48"
-        #    - label: "L4 europe-west1 g2-standard-48"
-        #      value: "L4 europe-west1 g2-standard-48"
-        #    - label: "L4 us-central1 g2-standard-48"
-        #      value: "L4 us-central1 g2-standard-48"
-        #    - label: "L4 us-east4 g2-standard-48"
-        #      value: "L4 us-east4 g2-standard-48"
-        #    - label: "L4 us-west1 g2-standard-48"
-        #      value: "L4 us-west1 g2-standard-48"
-        #    - label: "L4 asia-east1 g2-standard-96"
-        #      value: "L4 asia-east1 g2-standard-96"
-        #    - label: "L4 asia-south1 g2-standard-96"
-        #      value: "L4 asia-south1 g2-standard-96"
-        #    - label: "L4 europe-west1 g2-standard-96"
-        #      value: "L4 europe-west1 g2-standard-96"
-        #    - label: "L4 us-central1 g2-standard-96"
-        #      value: "L4 us-central1 g2-standard-96"
-        #    - label: "L4 us-east4 g2-standard-96"
-        #      value: "L4 us-east4 g2-standard-96"
-        #    - label: "L4 us-west1 g2-standard-96"
-        #      value: "L4 us-west1 g2-standard-96"
-        #    - label: "H100(80GB) asia-northeast1 a3-highgpu-8g"
-        #      value: "H100(80GB) asia-northeast1 a3-highgpu-8g"
-        #    - label: "H100(80GB) asia-southeast1 a3-highgpu-8g"
-        #      value: "H100(80GB) asia-southeast1 a3-highgpu-8g"
-        #    - label: "H100(80GB) europe-west1 a3-highgpu-8g"
-        #      value: "H100(80GB) europe-west1 a3-highgpu-8g"
-        #    - label: "H100(80GB) us-central1 a3-highgpu-8g"
-        #      value: "H100(80GB) us-central1 a3-highgpu-8g"
-        #    - label: "H100(80GB) us-east4 a3-highgpu-8g"
-        #      value: "H100(80GB) us-east4 a3-highgpu-8g"
-        #    - label: "H100(80GB) us-west1 a3-highgpu-8g"
-        #      value: "H100(80GB) us-west1 a3-highgpu-8g"
-        #    - label: "H100(80GB) us-west4 a3-highgpu-8g"
-        #      value: "H100(80GB) us-west4 a3-highgpu-8g"
-        #    - label: "A100(80GB) asia-southeast1 a2-ultragpu-1g"
-        #      value: "A100(80GB) asia-southeast1 a2-ultragpu-1g"
-        #    - label: "A100(80GB) europe-west4 a2-ultragpu-1g"
-        #      value: "A100(80GB) europe-west4 a2-ultragpu-1g"
-        #    - label: "A100(80GB) us-central1 a2-ultragpu-1g"
-        #      value: "A100(80GB) us-central1 a2-ultragpu-1g"
-        #    - label: "A100(80GB) us-east4 a2-ultragpu-1g"
-        #      value: "A100(80GB) us-east4 a2-ultragpu-1g"
-        #    - label: "A100(80GB) asia-southeast1 a2-ultragpu-4g"
-        #      value: "A100(80GB) asia-southeast1 a2-ultragpu-4g"
-        #    - label: "A100(80GB) europe-west4 a2-ultragpu-4g"
-        #      value: "A100(80GB) europe-west4 a2-ultragpu-4g"
-        #    - label: "A100(80GB) us-central1 a2-ultragpu-4g"
-        #      value: "A100(80GB) us-central1 a2-ultragpu-4g"
-        #    - label: "A100(80GB) us-east4 a2-ultragpu-4g"
-        #      value: "A100(80GB) us-east4 a2-ultragpu-4g"
-        #    - label: "A100(80GB) asia-northeast1 a2-ultragpu-8g"
-        #      value: "A100(80GB) asia-northeast1 a2-ultragpu-8g"
-        #    - label: "A100(80GB) asia-south1 a2-ultragpu-8g"
-        #      value: "A100(80GB) asia-south1 a2-ultragpu-8g"
-        #    - label: "A100(80GB) europe-west1 a2-ultragpu-8g"
-        #      value: "A100(80GB) europe-west1 a2-ultragpu-8g"
-        #    - label: "A100(80GB) us-central1 a2-ultragpu-8g"
-        #      value: "A100(80GB) us-central1 a2-ultragpu-8g"
-        #    - label: "A100(80GB) us-east4 a2-ultragpu-8g"
-        #      value: "A100(80GB) us-east4 a2-ultragpu-8g"
-        #    - label: "A100(80GB) us-west1 a2-ultragpu-8g"
-        #      value: "A100(80GB) us-west1 a2-ultragpu-8g"
         model_name:
           name: model_name
           title: NIM Model name

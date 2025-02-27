@@ -24,10 +24,6 @@ spec:
         description: Additional labels to add to Kubernetes resources.
         varType: string
         defaultValue: "created-by=gke-ai-quick-start-solutions,ai.gke.io=nim"
-      #- name: cluster_location
-      #  varType: string
-      #  required: true
-      #  defaultValue: "us-central1"
       - name: cluster_name
         varType: string
         defaultValue: "nim-on-gke"
@@ -73,11 +69,6 @@ spec:
         description: "Docker repository tag of NIM container"
         varType: string
         required: true
-      #- name: region_based_vm
-      #  description: "Pick a region for GKE Cluster and NVIDIA GPU accelerator"
-      #  varType: string
-      #  required: true
-      #  defaultValue: "L4 us-east4 g2-standard-24"
       - name: model_name
         description: "Pick a NIM model name"
         varType: string

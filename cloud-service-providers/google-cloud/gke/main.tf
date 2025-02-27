@@ -234,32 +234,12 @@ output "cluster_location" {
   value = local.cluster_location
 }
 
-output "gpu_location_map" {
-  value = local.gpu_location
-}
-
-output "gpu" {
-  value = local.gpu_type
-}
-
 output "zone"{
   value = local.zone
 }
 
-output "gpu_pools"{
-  value = local.gpu_pools
-}
-
 output "region"{
   value = local.region
-}
-
-output "gpu_type" {
-  value = local.gpu_type
-}
-
-output "gpu_location" {
-  value = local.gpu_location
 }
 
 output "machine_type" {

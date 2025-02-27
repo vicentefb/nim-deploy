@@ -552,7 +552,7 @@ variable "repository" {
 variable "model_name" {
   type        = string
   description = "Name of the NIM model"
-  default     = "llama3-8b-instruct​"
+  #default     = "llama3-8b-instruct​"
 }
 
 variable "tag" {

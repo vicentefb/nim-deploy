@@ -212,7 +212,7 @@ locals {
 
   zone = length(split("-", local.cluster_location)) > 2 ? split(",", local.cluster_location) : split(",", local.gpu_location[local.region])
 
-gpu_pools = [
+  gpu_pools = [
     for elm in var.gpu_pools : {
         machine_type = local.machine_type
         accelerator_type = local.accelerator_type.accelerator_type

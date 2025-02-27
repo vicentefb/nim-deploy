@@ -185,7 +185,11 @@ spec:
     outputs:
       - name: cluster_name
         description: GKE cluster name where the NIMs are running
-      - name: cluster_location
+      - name: compatible_cluster_location_l4
+        description: GKE cluster location
+      - name: compatible_cluster_location_a100
+        description: GKE cluster location
+      - name: compatible_cluster_location_h100
         description: GKE cluster location
       - name: project_id
         description: GCP project

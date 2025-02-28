@@ -249,7 +249,7 @@ variable "gpu_pools" {
     initial_node_count                = optional(number, 1)
     accelerator_count                 = optional(number, 0)
     accelerator_type                  = optional(string, "nvidia-l4")
-    gpu_driver_version                = optional(string, "DEFAULT")
+    gpu_driver_version                = optional(string, "LATEST")
   }))
   default = [{
     name                   = "gpu-pool"
@@ -262,7 +262,7 @@ variable "gpu_pools" {
     accelerator_count      = 2
     autoscaling            = true
     accelerator_type       = "nvidia-l4"
-    gpu_driver_version     = "DEFAULT"
+    gpu_driver_version     = "LATEST"
     service_account        = ""
     create_service_account = false
   }]

@@ -318,10 +318,10 @@ variable "gpu_locations_a100" {
 variable "gpu_locations_h100_80gb" {
   type = map(string)
 
-    gcloud compute accelerator-types list \
-    --filter="name:nvidia-h100-80gb" \
-    --format="value(zone)" \
-    | sort
+   # gcloud compute accelerator-types list \
+   # --filter="name:nvidia-h100-80gb" \
+   # --format="value(zone)" \
+   # | sort
 
   default = {
     "asia-northeast1"      = "asia-northeast1-b"

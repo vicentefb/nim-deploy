@@ -356,6 +356,12 @@ variable "vm_gpu_spec_list" {
       local_ssd_count   = 1
       gpu_family        = "l4"
     }
+    g2-standard-12 = {
+      accelerator_type  = "nvidia-l4"
+      accelerator_count = 1
+      local_ssd_count   = 1
+      gpu_family        = "l4"
+    }
     g2-standard-16 = {
       accelerator_type  = "nvidia-l4"
       accelerator_count = 1
